@@ -1,4 +1,5 @@
 # A sample Bowerfile
 # Check out https://github.com/42dev/bower-rails#ruby-dsl-configuration for more options
 
-# asset 'bootstrap'
+asset 'bootstrap-sass', '3.3.5'
+asset 'fontawesome', '4.4.0'
