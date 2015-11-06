@@ -29,6 +29,9 @@ gem 'will_paginate'
 
 group :development, :test do
   gem 'byebug'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'pry'
   gem 'rspec-core'
   gem 'rspec-its'
   gem 'rspec-mocks'
@@ -38,6 +41,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'bullet'
   gem 'ruby-progressbar'
   gem 'seedbank', github: 'james2m/seedbank'
   gem 'spring'
