@@ -33,19 +33,26 @@ group :development, :test do
   gem 'byebug'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'pry-rails'
   gem 'pry'
+end
+
+group :development do
+  gem 'annotate', require: false
+  gem 'awesome_print'
+  gem 'bullet'
+  gem 'ruby-progressbar'
+  gem 'seedbank', github: 'james2m/seedbank'
+  gem 'spring'
+  gem 'web-console', '~> 2.0'
+end
+
+group :test do
+  gem 'database_cleaner'
   gem 'rspec-core'
   gem 'rspec-its'
   gem 'rspec-mocks'
   gem 'rspec-rails'
   gem 'rspec'
   gem 'webmock'
-end
-
-group :development do
-  gem 'bullet'
-  gem 'ruby-progressbar'
-  gem 'seedbank', github: 'james2m/seedbank'
-  gem 'spring'
-  gem 'web-console', '~> 2.0'
 end

@@ -19,8 +19,12 @@ Dir.chdir APP_ROOT do
   else
     system 'bin/rake db:create'
     system 'bin/rake db:migrate'
-    system 'bin/rake db:setup'
+    system 'bin/rake db:seed'
   end
+
+  puts "\n== Prepare test database =="
+  system 'bin/rake db:test:prepare'
+  puts "\n== Test database has prepared =="
 
   puts "\n== Install bower components =="
   system 'bin/rake bower:install bower:resolve'
