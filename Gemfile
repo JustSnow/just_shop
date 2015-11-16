@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+gem 'admin_app', '~> 1.0.0', path: 'engines/admin_app'
+
 gem 'rails', '4.2.4'
 gem 'pg'
 

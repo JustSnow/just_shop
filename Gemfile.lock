@@ -16,6 +16,12 @@ GIT
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
 
+PATH
+  remote: engines/admin_app
+  specs:
+    admin_app (1.0.0)
+      rails (~> 4.2.4)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -260,6 +266,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-import
   acts_as_list
+  admin_app (~> 1.0.0)!
   ancestry
   annotate
   autoprefixer-rails
