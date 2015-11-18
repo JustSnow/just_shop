@@ -1,0 +1,17 @@
+!!!
+%head(lang="#{I18n.locale}")
+  %meta{ charset: 'utf-8' }
+  %meta{ 'http-equiv' => 'X-UA-Compatible', content: 'IE=edge,chrome=1' }
+  = csrf_meta_tags
+  = include_gon init: true
+  %title Auth JustShop Admin
+  = stylesheet_link_tag 'admin_app/admin'
+
+%body.l-main-admin
+  .l-header-sidebar
+  .l-body
+    .b-body
+      = yield
+
+  = javascript_include_tag 'admin_app/admin'
+  = yield :javascripts
