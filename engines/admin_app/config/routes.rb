@@ -1,12 +1,14 @@
 AdminApp::Engine.routes.draw do
   # TODO fix routes and paths
-  devise_for :admin_users,
+  devise_for :users,
     controllers: {
-      sessions: 'admin_user/sessions'
-    }
+      sessions: 'user/sessions'
+    },
+    class_name: 'AdminApp::User'
 
-  devise_scope :admin_user do
-    get :sign_in, to: 'admin_user/sessions#new', as: :login
+  # TODO fix path for engine and contollers
+  devise_scope :user do
+    get :sign_in, to: 'user/sessions#new', as: :login
   end
 
   root to: 'welcome#index'

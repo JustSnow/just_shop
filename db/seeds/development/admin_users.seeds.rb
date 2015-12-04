@@ -14,4 +14,4 @@ admins =
     end
   end
 
-AdminUser.import admins, validate: false
+AdminApp::User.import admins, validate: false
