@@ -1,0 +1,7 @@
+ru:
+  activerecord:
+    models:
+      'admin_app/user': Админы
+    attributes:
+      'admin_app/user':
+        email: E-mail

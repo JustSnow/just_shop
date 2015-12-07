@@ -3,7 +3,8 @@ module AdminApp
     layout 'admin_app/authentification'
 
     def new
-      binding.pry
+      @admin_model = AdminApp::User
+      super
     end
   end
 end

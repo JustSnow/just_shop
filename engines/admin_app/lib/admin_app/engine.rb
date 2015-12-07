@@ -18,7 +18,14 @@ module AdminApp
       app.config.assets.precompile += %w(
         admin_app/admin.js
         admin_app/admin.css
+        admin_app/authentification.js
+        admin_app/authentification.css
       )
+    end
+
+    config.assets.paths << AdminApp::Engine.root.join('app', 'assets', 'fonts')
+    config.assets.precompile << Proc.new do |path|
+      path =~ /fontawesome\/fonts/ and File.extname(path).in?(['.otf', '.eot', '.svg', '.ttf', '.woff', '.woff2'])
     end
   end
 end

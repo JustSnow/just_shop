@@ -5,13 +5,13 @@
   = csrf_meta_tags
   = include_gon init: true
   %title Auth JustShop Admin
-  = stylesheet_link_tag 'admin_app/admin'
+  = stylesheet_link_tag 'admin_app/authentification'
 
-%body.l-main-admin
+%body.l-authentification
   .l-header-sidebar
   .l-body
     .b-body
       = yield
 
-  = javascript_include_tag 'admin_app/admin'
+  = javascript_include_tag 'admin_app/authentification'
   = yield :javascripts
