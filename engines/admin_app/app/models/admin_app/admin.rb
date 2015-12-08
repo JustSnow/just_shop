@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: admin_users
+# Table name: admin_app_admins
 #
 #  id                     :integer          not null, primary key
 #  email                  :string           default(""), not null
@@ -13,6 +13,13 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string
+#  failed_attempts        :integer          default(0), not null
+#  unlock_token           :string
+#  locked_at              :datetime
 #  first_name             :string
 #  last_name              :string
 #  full_name              :string
@@ -22,17 +29,17 @@
 #
 # Indexes
 #
-#  index_admin_users_on_email                 (email) UNIQUE
-#  index_admin_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_admin_app_admins_on_confirmation_token    (confirmation_token) UNIQUE
+#  index_admin_app_admins_on_email                 (email) UNIQUE
+#  index_admin_app_admins_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_admin_app_admins_on_unlock_token          (unlock_token) UNIQUE
 #
 
 module AdminApp
-  class User < ActiveRecord::Base
-    self.table_name = 'admin_users'
-
+  class Admin < ActiveRecord::Base
     # Include default devise modules. Others available are:
     # :confirmable, :lockable, :timeoutable and :omniauthable
-    devise :database_authenticatable, :registerable,
-           :recoverable, :rememberable, :trackable, :validatable
+    devise :database_authenticatable, :registerable, :confirmable,
+           :recoverable, :rememberable, :trackable, :validatable, :lockable
   end
 end

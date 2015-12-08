@@ -9,9 +9,9 @@ admin_progressbar =
 admins =
   [].tap do |a|
     ADMINS_COUNT.times do |n|
-      a << FactoryGirl.build(:admin_user)
+      a << FactoryGirl.build(:admin)
       admin_progressbar.increment
     end
   end
 
-AdminApp::User.import admins, validate: false
+AdminApp::Admin.import admins, validate: false

@@ -1,14 +1,13 @@
 AdminApp::Engine.routes.draw do
-  devise_for :users,
-    controllers: {
-      sessions: 'admin_app/user/sessions'
-    },
-    class_name: 'AdminApp::User',
-    path_names: {
-      sign_in: 'login',
-      sign_out: 'logout',
-      sign_up: 'registration'
-    }
+  devise_for :admins,
+    skip: %w(sessions registrations confirmations unlocks),
+    class_name: 'AdminApp::Admin'
+
+  as :admin do
+    get 'login' => 'admin/sessions#new', as: :new_admin_session
+    post 'login' => 'admin/sessions#create', as: :admin_session
+    delete 'logout' => 'admin/sessions#destroy', as: :destroy_admin_session
+  end
 
   root to: 'welcome#index'
 end

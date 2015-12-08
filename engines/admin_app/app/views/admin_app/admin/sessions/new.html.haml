@@ -1,6 +1,6 @@
 .l-authentification-form
   - # add support for errors
-  = form_for @admin_model.new, url: user_session_path do |f|
+  = form_for @admin_model.new, url: admin_app.admin_session_path do |f|
     .form-group.input-group
       %label.input-group-addon{ for: 'authentification-form-admin-email' }
         %i.fa.fa-fw.fa-envelope

@@ -1,6 +1,5 @@
 ru:
   helpers:
     submit:
-      user:
-        # rename to the admins
+      admin:
         create: Авторизоваться
