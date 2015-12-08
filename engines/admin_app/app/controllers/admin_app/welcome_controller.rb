@@ -1,5 +1,5 @@
 module AdminApp
-  class WelcomeController < BaseController
+  class WelcomeController < AdminApp::BaseController
     def index
     end
   end

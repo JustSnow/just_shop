@@ -1,7 +1,16 @@
 .l-authentification-form
-  = form_for @admin_model.new, url: user_session_path, html: { class: 'form-horizontal' } do |f|
+  - # add support for errors
+  = form_for @admin_model.new, url: user_session_path do |f|
+    .form-group.input-group
+      %label.input-group-addon{ for: 'authentification-form-admin-email' }
+        %i.fa.fa-fw.fa-envelope
+      = f.text_field :email, placeholder: @admin_model.human_attribute_name(:email),
+        class: 'form-control', id: 'authentification-form-admin-email'
+
+    .form-group.input-group
+      %label.input-group-addon{ for: 'authentification-form-admin-password' }
+        %i.fa.fa-fw.fa-lock
+      = f.password_field :password, class: 'form-control', id: 'authentification-form-admin-password'
+
     .form-group
-      .input-group
-        %label.input-group-addon{ for: 'authentification-form-admin-email' } @
-        = f.text_field :email, placeholder: @admin_model.human_attribute_name(:email),
-          class: 'form-control', id: 'authentification-form-admin-email'
+      = f.submit class: 'btn btn-primary btn-block'

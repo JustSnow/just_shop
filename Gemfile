@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'admin_app', '~> 1.0.0', path: 'engines/admin_app'
 
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.5'
 gem 'pg'
 
 gem 'sass-rails', '~> 5.0'

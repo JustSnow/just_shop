@@ -1,17 +1,11 @@
 @import compass
-@import bootstrap-sass/assets/stylesheets/bootstrap/normalize
-@import bootstrap-sass/assets/stylesheets/bootstrap/variables
-@import bootstrap-sass/assets/stylesheets/bootstrap/mixins
-@import bootstrap-sass/assets/stylesheets/bootstrap/forms
-@import bootstrap-sass/assets/stylesheets/bootstrap/input-groups
-@import bootstrap-sass/assets/stylesheets/bootstrap/buttons
-
+@import bootstrap-sass/assets/stylesheets/bootstrap
 @import fontawesome/css/font-awesome.min
 
 label
   cursor: pointer
 
-html, .l-authentification
+html, .l-authentification, .l-body, .b-body
   height: 100%
   min-height: 100%
 
@@ -19,11 +13,18 @@ html, .l-authentification
   // add variables for colors and sizes
   background-color: #142849
   width: 100%
-  +inline-block
   color: #fff
   +background-image(radial-gradient(center, center, #165387, #142849))
   background-repeat: no-repeat
+  text-align: center
+
+.b-vertical-align-middle, .l-authentification-form
+  +inline-block
+  vertical-align: middle
+
+.b-vertical-align-middle
+  height: 100%
 
 .l-authentification-form
+  @extend .well
   width: 300px
-  margin: 30% auto

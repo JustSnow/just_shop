@@ -2,6 +2,6 @@
   "name": "dsl-generated dependencies",
   "dependencies": {
     "bootstrap-sass": "3.3.5",
-    "fontawesome": "4.4.0"
+    "fontawesome": "4.5.0"
   }
 }
