@@ -1,16 +1,15 @@
 .l-authentification-form
-  - # add support for errors
-  = form_for @admin_model.new, url: admin_app.admin_session_path do |f|
+  = form_for resource, url: admin_app.admin_session_path do |f|
+    - # add render resource errors here
     .form-group.input-group
-      %label.input-group-addon{ for: 'authentification-form-admin-email' }
+      = f.label :email, class: 'input-group-addon' do
         %i.fa.fa-fw.fa-envelope
-      = f.text_field :email, placeholder: @admin_model.human_attribute_name(:email),
-        class: 'form-control', id: 'authentification-form-admin-email'
+      = f.text_field :email, placeholder: resource.class.human_attribute_name(:email), class: 'form-control'
 
     .form-group.input-group
-      %label.input-group-addon{ for: 'authentification-form-admin-password' }
+      = f.label :password, class: 'input-group-addon' do
         %i.fa.fa-fw.fa-lock
-      = f.password_field :password, class: 'form-control', id: 'authentification-form-admin-password'
+      = f.password_field :password, class: 'form-control'
 
     .form-group
       = f.submit class: 'btn btn-primary btn-block'
