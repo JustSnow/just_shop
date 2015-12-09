@@ -1,4 +1,6 @@
 @import compass
+$state-danger-bg: #c13737 !default
+
 @import bootstrap-sass/assets/stylesheets/bootstrap
 @import fontawesome/css/font-awesome.min
 
@@ -28,3 +30,10 @@ html, .l-authentification, .l-body, .b-body
 .l-authentification-form
   @extend .well
   width: 300px
+
+li
+  &.form-error-type-alert
+    @extend .bg-danger
+
+  &.form-error-type-notice
+    @extend .bg-info

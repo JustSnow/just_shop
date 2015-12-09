@@ -1,6 +1,8 @@
 .l-authentification-form
   = form_for resource, url: admin_app.admin_session_path do |f|
-    - # add render resource errors here
+    %ul.b-authentification-form-errors.list-group
+      - flash.each do |error_type, msg|
+        %li.list-group-item{ class: "form-error-type-#{error_type}" }= msg
     .form-group.input-group
       = f.label :email, class: 'input-group-addon' do
         %i.fa.fa-fw.fa-envelope
