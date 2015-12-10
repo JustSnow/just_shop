@@ -1,4 +1,8 @@
 .l-authentification-form
+  .b-authentification-form-logo
+    %i.fa.fa-fw.fa-shopping-cart
+    %span JustShop
+  %hr
   = form_for resource, url: admin_app.admin_session_path do |f|
     %ul.b-authentification-form-errors.list-group
       - flash.each do |error_type, msg|

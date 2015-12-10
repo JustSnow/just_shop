@@ -1,1 +1,19 @@
 //= require_self
+
+@import compass
+$state-danger-bg: #c13737 !default
+
+@import bootstrap-sass/assets/stylesheets/bootstrap
+@import fontawesome/css/font-awesome.min
+
+.l-header-sidebar
+  +make-row
+
+.b-justshop-top-navigation
+  aside
+    +container-fixed
+
+.l-body
+  @extend .container
+  .b-body
+    +make-row

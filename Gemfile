@@ -44,10 +44,10 @@ group :development do
   gem 'annotate', require: false
   gem 'awesome_print'
   gem 'bullet'
+  gem 'quiet_assets'
   gem 'ruby-progressbar'
   gem 'seedbank', github: 'james2m/seedbank'
   gem 'spring'
-  gem 'web-console', '~> 2.0'
 end
 
 group :test do
