@@ -4,13 +4,12 @@
   %meta{ 'http-equiv' => 'X-UA-Compatible', content: 'IE=edge,chrome=1' }
   = csrf_meta_tags
   = include_gon init: true
+  - # TODO move it in global config
   %title JustShop Admin
   = stylesheet_link_tag 'admin_app/admin'
 
 %body.l-main-admin
-  .l-header-sidebar
-    %nav.navbar-inverse.navbar.b-justshop-top-navigation
-      %aside
+  .l-header-sidebar= render 'admin_app/shared/sidebar/top_sidebar'
   .l-body
     .b-body
       = yield

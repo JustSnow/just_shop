@@ -3,3 +3,5 @@
 
 asset 'bootstrap-sass', '3.3.5'
 asset 'fontawesome', '4.5.0'
+asset 'jquery-ujs', '1.1.0'
+asset 'jquery', '2.1.4'

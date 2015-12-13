@@ -1,0 +1,17 @@
+%nav.navbar-inverse.navbar.l-justshop-top-navigation
+  %aside
+    .navbar-header
+      %button.navbar-toggle.collapsed{ data: { toggle: 'collapse', target: '#l-justshop-admin-collapse-navbar' }, 'aria-expanded' => 'false' }
+        %span.sr-only
+        - 3.times do
+          %span.icon-bar
+      - # TODO move it in global config
+      = link_to 'JustShop', admin_app.root_path, class: 'navbar-brand'
+
+    .collapse.navbar-collapse#l-justshop-admin-collapse-navbar
+      %ul.nav.navbar-nav
+        %li.dropdown
+          = sidebar_dropdown_link t('admin.sidebar.users')
+          %ul.dropdown-menu
+            %li= link_to t('admin.sidebar.users'), admin_app.users_path
+            %li= link_to t('admin.sidebar.admins'), admin_app.admins_path

@@ -10,4 +10,7 @@ AdminApp::Engine.routes.draw do
   end
 
   root to: 'welcome#index'
+
+  resources :admins, except: [:show]
+  resources :users, except: [:show]
 end
