@@ -6,12 +6,12 @@ GIT
 
 GIT
   remote: git://github.com/plataformatec/devise.git
-  revision: 45fc9644703282e831d03ea891d198406abd350e
+  revision: f5926f6514918b2ae4dc5f81bdb556973a071f3f
   specs:
-    devise (3.5.2)
+    devise (3.5.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
+      railties (>= 4.1.0, < 5.1)
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
@@ -157,7 +157,7 @@ GEM
     multi_json (1.11.2)
     nokogiri (1.6.7)
       mini_portile2 (~> 2.0.0.rc2)
-    nokogumbo (1.4.1)
+    nokogumbo (1.4.6)
       nokogiri
     orm_adapter (0.5.0)
     pg (0.18.4)
@@ -207,7 +207,7 @@ GEM
     request_store (1.2.1)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
-    roadie (3.1.0)
+    roadie (3.1.1)
       css_parser (~> 1.3.4)
       nokogiri (>= 1.5.0, < 1.7.0)
     roadie-rails (1.1.0)
@@ -239,11 +239,11 @@ GEM
     rspec-support (3.4.1)
     ruby-progressbar (1.7.5)
     safe_yaml (1.0.4)
-    sanitize (4.0.0)
+    sanitize (4.0.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.4.4)
-      nokogumbo (= 1.4.1)
-    sass (3.4.19)
+      nokogumbo (~> 1.4.1)
+    sass (3.4.20)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
@@ -251,7 +251,7 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
     slop (3.6.0)
-    spring (1.5.0)
+    spring (1.6.0)
     sprockets (2.12.4)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -271,7 +271,7 @@ GEM
       json (>= 1.8.0)
     unicode (0.4.4.2)
     uniform_notifier (1.9.0)
-    warden (1.2.3)
+    warden (1.2.4)
       rack (>= 1.0)
     webmock (1.22.3)
       addressable (>= 2.3.6)

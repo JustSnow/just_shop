@@ -6,6 +6,10 @@ $state-danger-bg: #c13737 !default
 @import bootstrap-sass/assets/stylesheets/bootstrap
 @import fontawesome/css/font-awesome.min
 
+html, .l-main-admin, .l-body, .b-body
+  height: 100%
+  min-height: 100%
+
 .l-header-sidebar
   +make-row
 
@@ -17,3 +21,14 @@ $state-danger-bg: #c13737 !default
   @extend .container
   .b-body
     +make-row
+
+.l-spinner
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  i
+    position: absolute
+    left: 50%
+    top: 50%
+    z-index: 999
