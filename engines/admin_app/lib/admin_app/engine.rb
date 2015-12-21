@@ -7,6 +7,7 @@ module AdminApp
       app/services
       app/forms
       app/policies
+      api
     ).map{ |path| "#{config.root}/#{path}" }
 
     config.autoload_paths   += autoload_paths
