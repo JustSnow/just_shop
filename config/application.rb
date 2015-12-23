@@ -16,11 +16,11 @@ Bundler.require(*Rails.groups)
 
 module JustShop
   class Application < Rails::Application
-    config.time_zone = 'Moscow'
+    config.time_zone = Settings.application.time_zone
 
     config.i18n.load_path += Dir['config/locales/**/*.{rb,yml}']
-    config.i18n.available_locales = %i(ru en)
-    config.i18n.default_locale = :ru
+    config.i18n.available_locales = Settings.application.available_locales
+    config.i18n.default_locale = Settings.application.default_locale
 
     config.generators do |g|
       g.helper false

@@ -6,9 +6,10 @@ module AdminApp
           optional :page, type: Integer
         end
 
-        # TODO add config for store settings
         def admins
-          @admins ||= Admin.all.paginate page: params[:page], per_page: 1
+          @admins ||= Admin.all.paginate \
+            page: params[:page],
+            per_page: Settings.admin.pagination.admins
         end
 
         def admin

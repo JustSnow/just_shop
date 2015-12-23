@@ -1,0 +1,7 @@
+application:
+  time_zone: 'Moscow'
+  available_locales: ['ru', 'en']
+  default_locale: 'ru'
+
+pagination:
+  users: 10

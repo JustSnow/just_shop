@@ -1,0 +1,4 @@
+admin:
+  pagination:
+    admins: 10
+    users: 10

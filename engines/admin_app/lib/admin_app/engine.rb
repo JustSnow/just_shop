@@ -24,6 +24,12 @@ module AdminApp
       )
     end
 
+    initializer :load_admin_app_settings do |app|
+      Config.load_and_set_settings \
+      "#{config.root}/config/settings.yml",
+      config.root.join('config', 'settings', "#{Rails.env}.yml")
+    end
+
     config.assets.paths << AdminApp::Engine.root.join('app', 'assets', 'fonts')
     config.assets.precompile << Proc.new do |path|
       path =~ /fontawesome\/fonts/ and File.extname(path).in?(['.otf', '.eot', '.svg', '.ttf', '.woff', '.woff2'])
