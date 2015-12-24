@@ -6,6 +6,10 @@ module AdminApp
           optional :page, type: Integer
         end
 
+        def warden
+          env['warden']
+        end
+
         def admins
           @admins ||= Admin.all.paginate \
             page: params[:page],
@@ -24,6 +28,8 @@ module AdminApp
         end
 
         get do
+          present :warden, warden.authenticated?
+          present :warden1, warden.user
           present :total_pages, admins.total_pages
           present :next_page?, admins.next_page.present?
           present admins, with: Entities::Admin
