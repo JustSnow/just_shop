@@ -1,13 +1,18 @@
 module AdminApp
   class Application < Grape::API
-    # TODO fix me
-    # include ErrorsHandling
+    include ErrorsHandling
 
     cascade true
     format :json
     default_format :json
 
-    # helpers AuthenticationApiHelper
+    content_type :json, 'application/json; charset=utf-8'
+
+    helpers AuthenticationApiHelpers
+
+    before do
+      authenticate!
+    end
 
     mount Versions::V10
   end

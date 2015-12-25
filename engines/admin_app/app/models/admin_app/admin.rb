@@ -22,7 +22,6 @@
 #  locked_at              :datetime
 #  first_name             :string
 #  last_name              :string
-#  full_name              :string
 #  role                   :string           default("admin")
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
@@ -37,6 +36,8 @@
 
 module AdminApp
   class Admin < ActiveRecord::Base
+    include Names
+
     # Include default devise modules. Others available are:
     # :confirmable, :lockable, :timeoutable and :omniauthable
     devise :database_authenticatable, :registerable, :confirmable,

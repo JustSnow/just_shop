@@ -23,20 +23,21 @@ RSpec.configure do |config|
 
   # Sidekiq::Testing.inline!
 
-  config.before(:suite) do
+  config.before :suite do
     DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.clean_with :truncation
   end
 
-  config.before(:each) do
+  config.before :each do
     DatabaseCleaner.start
     # Sidekiq::Worker.clear_all
     ActionMailer::Base.deliveries.clear
   end
 
-  config.after(:each) do
+  config.after :each do
     DatabaseCleaner.clean
-    FactoryGirl.reset_shared_admin
+    # TODO add shared admin
+    # FactoryGirl.reset_shared_admin
   end
 
   # config.after(:all) do

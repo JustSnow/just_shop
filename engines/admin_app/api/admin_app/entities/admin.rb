@@ -7,7 +7,7 @@ module AdminApp
       expose :email
       expose :first_name
       expose :last_name
-      expose :full_name
+      expose :name
       expose :role
 
       expose :created_at

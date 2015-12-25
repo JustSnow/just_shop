@@ -32,9 +32,7 @@ class DeviseCreateAdminAppAdmins < ActiveRecord::Migration
 
       t.string :first_name
       t.string :last_name
-      t.string :full_name
       t.string :role, default: 'admin'
-
 
       t.timestamps null: false
     end
