@@ -7,6 +7,8 @@ require 'devise'
 require 'pundit/rspec'
 require 'webmock/rspec'
 
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+
 ActiveRecord::Migration.maintain_test_schema!
 WebMock.disable_net_connect! allow_localhost: true
 
@@ -20,6 +22,7 @@ RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
   config.include Devise::TestHelpers, type: :controller
+  config.include RSpec::Rails::RequestExampleGroup, type: :request, file_path: /spec\/api/
 
   # Sidekiq::Testing.inline!
 
@@ -36,8 +39,7 @@ RSpec.configure do |config|
 
   config.after :each do
     DatabaseCleaner.clean
-    # TODO add shared admin
-    # FactoryGirl.reset_shared_admin
+    FactoryGirl.reset_shared_admin
   end
 
   # config.after(:all) do
