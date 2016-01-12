@@ -22,7 +22,10 @@ RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
   config.include Devise::TestHelpers, type: :controller
+  config.include Warden::Test::Helpers, type: :request
   config.include RSpec::Rails::RequestExampleGroup, type: :request, file_path: /spec\/api/
+
+  config.extend ControllerMacros, type: :controller
 
   # Sidekiq::Testing.inline!
 
@@ -35,11 +38,13 @@ RSpec.configure do |config|
     DatabaseCleaner.start
     # Sidekiq::Worker.clear_all
     ActionMailer::Base.deliveries.clear
+    Warden.test_mode!
   end
 
   config.after :each do
     DatabaseCleaner.clean
     FactoryGirl.reset_shared_admin
+    Warden.test_reset!
   end
 
   # config.after(:all) do

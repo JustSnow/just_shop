@@ -4,7 +4,7 @@ module FactoryGirlExtension
   end
 
   def shared_admin
-    @shared_admin ||= AdminUser.first || FactoryGirl.create(:admin)
+    @shared_admin ||= AdminApp::Admin.first || FactoryGirl.create(:admin)
   end
 
   def reset_shared_admin
