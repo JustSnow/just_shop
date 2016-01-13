@@ -1,24 +1,47 @@
 describe AdminApp::Versions::V10::Admins, type: :request do
   include_context 'api request authentication helper methods'
 
-  def dispatch
-    get "/admin/api/v1.0/#{request_path}"
-  end
-
   context 'GET api/v1.0/admins' do
-    let(:request_path) { 'admins' }
-
-    before { dispatch }
+    def dispatch
+      get '/admin/api/v1.0/admins'
+    end
 
     context "when user doesn't authenticated" do
-      specify { expect(response.status).to eq(401) }
+      before { dispatch }
+
+      it_behaves_like 'unauthorized response'
     end
 
     context 'when use authenticated' do
-      before { login_admin }
+      before do
+        login_admin
+        dispatch
+      end
 
-      # TODO fix me
-      specify { expect(response).to be_success }
+      it_behaves_like 'success response'
+    end
+  end
+
+  context 'GET api/v1.0/admins/:id' do
+    def dispatch
+      get "/admin/api/v1.0/admins/#{id}"
+    end
+
+    let(:id) { FactoryGirl.shared_admin.id }
+
+    context "when user doesn't authenticated" do
+      before { dispatch }
+
+      it_behaves_like 'unauthorized response'
+    end
+
+    context 'when use authenticated' do
+      before do
+        login_admin
+        dispatch
+      end
+
+      it_behaves_like 'success response'
     end
   end
 end
