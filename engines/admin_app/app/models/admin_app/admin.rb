@@ -36,11 +36,15 @@
 
 module AdminApp
   class Admin < ActiveRecord::Base
+    extend Enumerize
     include Names
 
     # Include default devise modules. Others available are:
     # :confirmable, :lockable, :timeoutable and :omniauthable
     devise :database_authenticatable, :registerable, :confirmable,
            :recoverable, :rememberable, :trackable, :validatable, :lockable
+
+    enumerize :role, in: [:admin, :manager, :store_manager, :post_manager],
+      default: :admin, predicates: true
   end
 end

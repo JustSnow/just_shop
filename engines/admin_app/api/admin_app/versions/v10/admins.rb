@@ -30,6 +30,14 @@ module AdminApp
         end
 
         desc 'Create admin'
+        params do
+          requires :email, type: String
+          requires :password, type: String
+          requires :password_confirmation, type: String
+          optional :first_name, type: String
+          optional :last_name, type: String
+          optional :role, type: String
+        end
         post do
         end
 
@@ -45,6 +53,7 @@ module AdminApp
 
           desc 'Delete admin'
           delete do
+            admin.destroy
           end
         end
       end

@@ -1,0 +1,8 @@
+ru:
+  enumerize:
+    'admin_app/admin':
+      role:
+        admin: Администратор
+        manager: Менеджер
+        store_manager: Менеджер магазинов
+        post_manager: Копирайтер
