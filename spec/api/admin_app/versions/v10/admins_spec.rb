@@ -59,4 +59,34 @@ describe AdminApp::Versions::V10::Admins, type: :request do
       specify { expect(admins).not_to include admin }
     end
   end
+
+  context 'POST api/v1.0/admins' do
+    def dispatch
+      post '/admin/api/v1.0/admins', valid_params
+    end
+
+    let(:valid_params) { {} }
+
+    it_behaves_like "when user doesn't authenticated"
+
+    context 'when use authenticated' do
+      let :valid_params do
+        {
+          admin: {
+            email: Faker::Internet.free_email,
+            password: '12345678',
+            password_confirmation: '12345678',
+            first_name: Faker::Name.first_name
+          }
+        }
+      end
+
+      before do
+        login_admin
+        dispatch
+      end
+
+      it_behaves_like 'success response'
+    end
+  end
 end

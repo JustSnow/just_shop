@@ -15,13 +15,9 @@ module ErrorsHandling
     end
 
     rescue_from Grape::Exceptions::ValidationErrors do |e|
-      error_response message: errors_to_h(e), status: e.status
-    end
-
-    private
-
-    def errors_to_h e
-      Hash[e.errors.map { |key, value| [(key.length == 1) ? key.first : key, value] }]
+      error_response \
+        message: Hash[e.errors.map { |key, value| [(key.length == 1) ? key.first : key, value] }],
+        status: e.status
     end
   end
 end

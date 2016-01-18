@@ -9,6 +9,7 @@ module AdminApp
     content_type :json, 'application/json; charset=utf-8'
 
     helpers AuthenticationApiHelpers
+    helpers CleanParamsHelpers
 
     before do
       authenticate!
