@@ -62,18 +62,19 @@ describe AdminApp::Versions::V10::Admins, type: :request do
 
   context 'POST api/v1.0/admins' do
     def dispatch
-      post '/admin/api/v1.0/admins', valid_params
+      post '/admin/api/v1.0/admins', params
     end
 
-    let(:valid_params) { {} }
+    let(:params) { {} }
 
     it_behaves_like "when user doesn't authenticated"
 
     context 'when use authenticated' do
-      let :valid_params do
+      let(:email) { Faker::Internet.free_email }
+      let :params do
         {
           admin: {
-            email: Faker::Internet.free_email,
+            email: email,
             password: '12345678',
             password_confirmation: '12345678',
             first_name: Faker::Name.first_name
@@ -87,6 +88,34 @@ describe AdminApp::Versions::V10::Admins, type: :request do
       end
 
       it_behaves_like 'success response'
+      specify { expect(AdminApp::Admin.pluck(:email)).to include email }
+
+      context "when admin's data doesn't valid" do
+        let :params do
+          {
+            admin: {
+              email: email,
+              password: '12345678',
+              password_confirmation: '123456781',
+              first_name: Faker::Name.first_name
+            }
+          }
+        end
+
+        it_behaves_like 'record invalid'
+      end
     end
+  end
+
+  context 'PUT api/v1.0/admins/:id' do
+    def dispatch
+      put "/admin/api/v1.0/admins/#{id}", params
+    end
+
+    let(:params) { {} }
+    let(:admin) { create :admin }
+    let(:id) { admin.id }
+
+    it_behaves_like "when user doesn't authenticated"
   end
 end

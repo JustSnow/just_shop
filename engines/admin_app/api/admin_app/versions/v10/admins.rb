@@ -57,6 +57,8 @@ module AdminApp
 
           desc 'Update admin'
           put do
+            form = AdminForm.new admin, permitted_params
+            form.save
           end
 
           desc 'Delete admin'

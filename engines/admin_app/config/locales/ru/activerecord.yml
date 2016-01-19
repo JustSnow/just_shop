@@ -5,3 +5,8 @@ ru:
     attributes:
       'admin_app/admin':
         email: E-mail
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        role: Роль
+        first_name: Имя
+        last_name: Фамилия

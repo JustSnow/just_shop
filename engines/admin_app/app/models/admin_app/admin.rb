@@ -13,10 +13,6 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
-#  confirmation_token     :string
-#  confirmed_at           :datetime
-#  confirmation_sent_at   :datetime
-#  unconfirmed_email      :string
 #  failed_attempts        :integer          default(0), not null
 #  unlock_token           :string
 #  locked_at              :datetime
@@ -28,7 +24,6 @@
 #
 # Indexes
 #
-#  index_admin_app_admins_on_confirmation_token    (confirmation_token) UNIQUE
 #  index_admin_app_admins_on_email                 (email) UNIQUE
 #  index_admin_app_admins_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_admin_app_admins_on_unlock_token          (unlock_token) UNIQUE
@@ -41,8 +36,8 @@ module AdminApp
 
     # Include default devise modules. Others available are:
     # :confirmable, :lockable, :timeoutable and :omniauthable
-    devise :database_authenticatable, :registerable, :confirmable,
-           :recoverable, :rememberable, :trackable, :validatable, :lockable
+    devise :database_authenticatable, :registerable, :recoverable, 
+           :rememberable, :trackable, :validatable, :lockable
 
     enumerize :role, in: [:admin, :manager, :store_manager, :post_manager],
       default: :admin, predicates: true

@@ -2,7 +2,7 @@ AdminApp::Engine.routes.draw do
   mount AdminApp::Application => '/api', as: :api
 
   devise_for :admins,
-    skip: %w(sessions registrations confirmations unlocks),
+    skip: %w(sessions registrations unlocks),
     class_name: 'AdminApp::Admin'
 
   as :admin do

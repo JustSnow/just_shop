@@ -28,10 +28,6 @@ ActiveRecord::Schema.define(version: 20151110080539) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
     t.integer  "failed_attempts",        default: 0,       null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
@@ -42,7 +38,6 @@ ActiveRecord::Schema.define(version: 20151110080539) do
     t.datetime "updated_at",                               null: false
   end
 
-  add_index "admin_app_admins", ["confirmation_token"], name: "index_admin_app_admins_on_confirmation_token", unique: true, using: :btree
   add_index "admin_app_admins", ["email"], name: "index_admin_app_admins_on_email", unique: true, using: :btree
   add_index "admin_app_admins", ["reset_password_token"], name: "index_admin_app_admins_on_reset_password_token", unique: true, using: :btree
   add_index "admin_app_admins", ["unlock_token"], name: "index_admin_app_admins_on_unlock_token", unique: true, using: :btree
