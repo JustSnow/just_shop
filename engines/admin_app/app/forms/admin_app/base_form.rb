@@ -1,6 +1,7 @@
 module AdminApp
   class BaseForm < Struct.new :model, :form_attributes
     extend ActiveModel::Naming
+    include ActiveModel::Conversion
     include ActiveModel::Validations
 
     def initialize model, attributes
@@ -19,6 +20,10 @@ module AdminApp
       else
         false
       end
+    end
+
+    def save!
+      persist!
     end
 
     private

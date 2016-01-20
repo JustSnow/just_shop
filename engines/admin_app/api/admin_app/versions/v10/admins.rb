@@ -6,6 +6,14 @@ module AdminApp
           optional :page, type: Integer
         end
 
+        params :admin do
+          group :admin, type: Hash do
+            requires :email, type: String
+            requires :password, type: String
+            requires :password_confirmation, type: String
+          end
+        end
+
         def admins
           @admins ||= Admin.all.paginate \
             page: params[:page],
@@ -35,18 +43,14 @@ module AdminApp
 
         desc 'Create admin'
         params do
-          group :admin, type: Hash do
-            requires :email, type: String
-            requires :password, type: String
-            requires :password_confirmation, type: String
-            optional :first_name, type: String
-            optional :last_name, type: String
-            optional :role, type: String
-          end
+          use :admin
         end
+
         post do
           form = AdminForm.new Admin.new, permitted_params
-          form.save
+          form.save!
+
+          present form, with: Entities::Admin
         end
 
         route_param :id do
@@ -56,14 +60,21 @@ module AdminApp
           end
 
           desc 'Update admin'
+          params do
+            use :admin
+          end
+
           put do
             form = AdminForm.new admin, permitted_params
-            form.save
+            form.save!
+
+            present form, with: Entities::Admin
           end
 
           desc 'Delete admin'
           delete do
             admin.destroy
+            present admin, with: Entities::Admin
           end
         end
       end
